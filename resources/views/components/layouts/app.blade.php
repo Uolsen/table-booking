@@ -10,6 +10,9 @@
         @stack('styles')
     </head>
     <body>
+        <x-header></x-header>
+
+        {{-- Main content --}}
         {{ $slot }}
     </body>
 </html>
