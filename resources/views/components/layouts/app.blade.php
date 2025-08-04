@@ -9,9 +9,7 @@
         @vite('resources/css/app.css')
         @stack('styles')
     </head>
-    <body>
-        <x-header></x-header>
-
+    <body class="h-full">
         {{-- Main content --}}
         {{ $slot }}
     </body>
