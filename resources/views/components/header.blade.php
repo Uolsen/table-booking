@@ -17,7 +17,11 @@
                     <a href="#" class="text-sm/6 font-semibold text-gray-900">Features</a>
                     <a href="#" class="text-sm/6 font-semibold text-gray-900">Marketplace</a>
                     <a href="#" class="text-sm/6 font-semibold text-gray-900">Company</a>
-                    <a href="#" class="text-sm/6 font-semibold text-gray-900">Log in</a>
+                    @if(auth()->check())
+                        <a href="{{ route('logout') }}" class="text-sm/6 font-semibold text-gray-900">Log Out</a>
+                    @else
+                        <a href="{{ route('login') }}" class="text-sm/6 font-semibold text-gray-900">Log in</a>
+                    @endif
                 </div>
             </nav>
         </div>
@@ -45,7 +49,11 @@
                                 <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Features</a>
                                 <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Marketplace</a>
                                 <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Company</a>
-                                <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Log in</a>
+                                @if(auth()->check())
+                                    <a href="{{ route('logout') }}" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Log out</a>
+                                @else
+                                    <a href="{{ route('login') }}" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Log in</a>
+                                @endif
                             </div>
                             <div class="py-6">
                                 <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Log in</a>
