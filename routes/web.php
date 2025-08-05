@@ -13,3 +13,11 @@ Route::get('/registration', \App\Livewire\Pages\Registration::class)
 
 Route::get('/reservate', \App\Livewire\Pages\Reservate::class)
     ->name('reservate');
+
+Route::get('/logout', function () {
+    auth()->logout();
+    request()->session()->invalidate();
+    request()->session()->regenerateToken();
+
+    return redirect()->route('homepage');
+})->name('logout');
