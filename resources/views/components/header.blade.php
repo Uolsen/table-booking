@@ -1,6 +1,9 @@
-<header class="absolute inset-x-0 top-0 z-50">
+<header @class([
+    'inset-x-0 top-0 z-50',
+    'absolute' => request()->routeIs('homepage')
+])>
     <div class="mx-auto max-w-7xl">
-        <div class="px-6 pt-6 lg:max-w-2xl lg:pr-0 lg:pl-8">
+        <div class="px-6 py-6 lg:max-w-2xl lg:pr-0 lg:pl-8">
             <nav aria-label="Global" class="flex items-center justify-between lg:justify-start">
                 <a href="#" class="-m-1.5 p-1.5">
                     <span class="sr-only">Your Company</span>
@@ -16,8 +19,8 @@
                     <a href="#" class="text-sm/6 font-semibold text-gray-900">Product</a>
                     <a href="#" class="text-sm/6 font-semibold text-gray-900">Features</a>
                     <a href="#" class="text-sm/6 font-semibold text-gray-900">Marketplace</a>
-                    <a href="#" class="text-sm/6 font-semibold text-gray-900">Company</a>
                     @if(auth()->check())
+                        <a href="{{ route('dashboard') }}" class="text-sm/6 font-semibold text-gray-900">Dashboard</a>
                         <a href="{{ route('logout') }}" class="text-sm/6 font-semibold text-gray-900">Log Out</a>
                     @else
                         <a href="{{ route('login') }}" class="text-sm/6 font-semibold text-gray-900">Log in</a>
@@ -48,8 +51,8 @@
                                 <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Product</a>
                                 <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Features</a>
                                 <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Marketplace</a>
-                                <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Company</a>
                                 @if(auth()->check())
+                                    <a href="{{ route('dashboard') }}" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Dashboard</a>
                                     <a href="{{ route('logout') }}" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Log out</a>
                                 @else
                                     <a href="{{ route('login') }}" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Log in</a>
