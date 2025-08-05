@@ -7,3 +7,6 @@ Route::get('/', \App\Livewire\Pages\Homepage::class)
 
 Route::get('/login', \App\Livewire\Pages\Login::class)
     ->name('login');
+
+Route::get('/reservate', \App\Livewire\Pages\Reservate::class)
+    ->name('reservate');
