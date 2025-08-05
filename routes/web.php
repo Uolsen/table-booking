@@ -8,5 +8,8 @@ Route::get('/', \App\Livewire\Pages\Homepage::class)
 Route::get('/login', \App\Livewire\Pages\Login::class)
     ->name('login');
 
+Route::get('/registration', \App\Livewire\Pages\Registration::class)
+    ->name('registration');
+
 Route::get('/reservate', \App\Livewire\Pages\Reservate::class)
     ->name('reservate');

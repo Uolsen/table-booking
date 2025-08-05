@@ -27,11 +27,10 @@ class Login extends Component
     {
         $this->validate();
 
-
         if (\Auth::attempt(['email' => $this->email, 'password' => $this->password])) {
             return redirect()->route('homepage');
         } else {
-            throw ValidationException::withMessages(['email' => 'Email nebo heslo je špatně.']);
+            throw ValidationException::withMessages(['email' => 'Email or password is incorrect.']);
         }
     }
 
