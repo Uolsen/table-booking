@@ -20,6 +20,7 @@ return new class extends Migration {
             $table->integer('people_count');
             $table->dateTime('start_time');
             $table->dateTime('end_time');
+            $table->integer('table_number');
             $table->timestamps();
         });
     }

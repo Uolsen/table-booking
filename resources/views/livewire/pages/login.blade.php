@@ -51,8 +51,8 @@
 
         <p class="mt-10 text-center text-sm text-gray-500">
             Don't have an account?
-            <a href="#" class="font-semibold text-primary-600 hover:text-primary-500">
-                Create a reservation and start using the app!
+            <a href="{{ route('registration') }}" class="font-semibold text-primary-600 hover:text-primary-500">
+                Create a new account!
             </a>
         </p>
     </div>
