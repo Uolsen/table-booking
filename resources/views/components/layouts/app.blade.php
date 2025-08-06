@@ -7,6 +7,7 @@
         <title>{{ $title ?? 'Table Booking' }}</title>
 
         @vite('resources/css/app.css')
+        @vite('resources/js/app.js')
         @stack('styles')
     </head>
     <body class="h-full">
