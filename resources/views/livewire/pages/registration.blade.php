@@ -59,8 +59,8 @@
                 description="Re-enter your password"
                 required
                 autocomplete="new-password"
-                wire:model="password_confirmation"
-                :error="$errors->has('password_confirmation') ? $errors->first('password_confirmation') : null"
+                wire:model="passwordConfirmation"
+                :error="$errors->has('passwordConfirmation') ? $errors->first('passwordConfirmation') : null"
             />
 
             <div>

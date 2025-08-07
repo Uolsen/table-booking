@@ -33,7 +33,7 @@ it('registers a new user with valid inputs', function () {
         ->set('name', $userData['name'])
         ->set('email', $userData['email'])
         ->set('password', $userData['password'])
-        ->set('password_confirmation', $userData['password_confirmation'])
+        ->set('passwordConfirmation', $userData['password_confirmation'])
         ->call('submit')
         ->assertRedirect(route('dashboard'));
 
@@ -49,7 +49,7 @@ it('throws a validation error on mismatched passwords', function () {
         ->set('name', 'Test User')
         ->set('email', 'test@example.com')
         ->set('password', 'password')
-        ->set('password_confirmation', 'differentpassword')
+        ->set('passwordConfirmation', 'differentpassword')
         ->call('submit')
         ->assertHasErrors(['password']);
 });

@@ -17,11 +17,11 @@ class Registration extends Component
     #[Validate('required|email|unique:users,email|max:255')]
     public string $email = '';
 
-    #[Validate('required|min:8|confirmed')]
+    #[Validate('required|min:8|confirmed:passwordConfirmation')]
     public string $password = '';
 
     #[Validate('required|min:8|same:password')]
-    public string $password_confirmation = '';
+    public string $passwordConfirmation = '';
 
     public function mount()
     {
