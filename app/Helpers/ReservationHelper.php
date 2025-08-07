@@ -17,7 +17,7 @@ class ReservationHelper
      * @return int
      * @throws ValidationException
      */
-    public static function checkAvailability(CarbonInterface $from, CarbonInterface $to): int
+    public static function checkAvailability(CarbonInterface $from, CarbonInterface $to, string $errorKey): int
     {
         $capacity = config('booking.table_count', 10);
 
@@ -39,7 +39,7 @@ class ReservationHelper
         }
 
         throw ValidationException::withMessages([
-            'from_date_time' => 'The selected date and time is not available.',
+            $errorKey => 'The selected date and time is not available.',
         ]);
     }
 }

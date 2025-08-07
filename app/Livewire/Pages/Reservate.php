@@ -14,21 +14,21 @@ class Reservate extends Component
 {
     public int $seats = 1;
 
-    public $from_date_time = null;
-    public $to_date_time = null;
+    public $fromDateTime = null;
+    public $toDateTime = null;
 
-    public $available_dates = [];
+    public $availableDates = [];
 
     public function rules(): array
     {
         return [
             'seats' => 'required|integer|min:1|max:' . config('booking.table_capacity', 10),
-            'from_date_time' => 'required|date|after_or_equal:now',
-            'to_date_time' => [
+            'fromDateTime' => 'required|date|after_or_equal:now',
+            'toDateTime' => [
                 'required',
                 Rule::date()
-                    ->afterOrEqual(Carbon::make($this->from_date_time ?? now())->addMinutes(config('booking.min_reservation_duration', 30))->toDateTimeString())
-                    ->beforeOrEqual(Carbon::make($this->from_date_time ?? now())->addMinutes(config('booking.max_reservation_duration', 120))->toDateTimeString()),
+                    ->afterOrEqual(Carbon::make($this->fromDateTime ?? now())->addMinutes(config('booking.min_reservation_duration', 30))->toDateTimeString())
+                    ->beforeOrEqual(Carbon::make($this->fromDateTime ?? now())->addMinutes(config('booking.max_reservation_duration', 120))->toDateTimeString()),
             ]
         ];
     }
@@ -37,10 +37,10 @@ class Reservate extends Component
     {
         $this->validate();
 
-        $from = Carbon::make($this->from_date_time);
-        $to = Carbon::make($this->to_date_time);
+        $from = Carbon::make($this->fromDateTime);
+        $to = Carbon::make($this->toDateTime);
 
-        $tableNumber = ReservationHelper::checkAvailability($from, $to);
+        $tableNumber = ReservationHelper::checkAvailability($from, $to, 'fromDateTime');
 
         $reservation = Reservation::create([
             'people_count' => $this->seats,
@@ -58,15 +58,5 @@ class Reservate extends Component
     public function render()
     {
         return view('livewire.pages.reservate');
-    }
-
-    public function setFromDate(Carbon $from)
-    {
-        $this->from_date_time = $from->toDateTimeString();
-    }
-
-    public function setToDate(Carbon $to)
-    {
-        $this->to_date_time = $to->toDateTimeString();
     }
 }

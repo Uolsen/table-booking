@@ -10,7 +10,7 @@
             </header>
         </div>
         <main class="-mt-32">
-            <div class="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-5xl px-4 pb-12 sm:px-6 lg:px-8">
                 <div class="rounded-lg bg-white px-5 py-6 shadow-sm sm:px-6">
                     <form wire:submit="submit">
                         <div class="space-y-12">
@@ -88,16 +88,16 @@
                                 >
                                     <div>
                                         <x-input id="from" type="text" class="sm:col-span-3"
-                                                 wire:model="from_date_time"
-                                                 :error="$errors->has('from_date_time') ? $errors->first('from_date_time') : null"
-                                                 label="Reservation date" placeholder="Select date" x-ref="from"
+                                                 wire:model="fromDateTime"
+                                                 :error="$errors->has('fromDateTime') ? $errors->first('fromDateTime') : null"
+                                                 label="Reservation date" placeholder="Select from date" x-ref="from"
                                                  readonly />
                                     </div>
                                     <div>
                                         <x-input id="to" type="text" class="sm:col-span-3"
-                                                 wire:model="to_date_time"
-                                                 :error="$errors->has('to_date_time') ? $errors->first('to_date_time') : null"
-                                                 label="Reservation date" placeholder="Select date" x-ref="to"
+                                                 wire:model="toDateTime"
+                                                 :error="$errors->has('toDateTime') ? $errors->first('toDateTime') : null"
+                                                 label="Reservation date" placeholder="Select to date" x-ref="to"
                                                  readonly />
                                     </div>
                                 </div>

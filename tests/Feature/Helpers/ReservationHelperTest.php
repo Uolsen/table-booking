@@ -22,7 +22,7 @@ it('allows reservation to table 2 if table 1 is occupied around the start', func
         'table_number' => 1,
     ]);
 
-    $availableTable = ReservationHelper::checkAvailability($from, $to);
+    $availableTable = ReservationHelper::checkAvailability($from, $to, 'fromDateTime');
     expect($availableTable)->toBe(2);
 });
 
@@ -38,7 +38,7 @@ it('allows reservation to table 2 if table 1 is occupied around the end', functi
         'table_number' => 1,
     ]);
 
-    $availableTable = ReservationHelper::checkAvailability($from, $to);
+    $availableTable = ReservationHelper::checkAvailability($from, $to, 'fromDateTime');
     expect($availableTable)->toBe(2);
 });
 
@@ -54,7 +54,7 @@ it('allows reservation to table 2 if table 1 is occupied inside', function () {
         'table_number' => 1,
     ]);
 
-    $availableTable = ReservationHelper::checkAvailability($from, $to);
+    $availableTable = ReservationHelper::checkAvailability($from, $to, 'fromDateTime');
     expect($availableTable)->toBe(2);
 });
 
@@ -70,7 +70,7 @@ it('allows reservation to table 2 if table 1 is occupied outside', function () {
         'table_number' => 1,
     ]);
 
-    $availableTable = ReservationHelper::checkAvailability($from, $to);
+    $availableTable = ReservationHelper::checkAvailability($from, $to, 'fromDateTime');
     expect($availableTable)->toBe(2);
 });
 
@@ -96,7 +96,7 @@ it('allows reservation to table 2 if table 1 is occupied around and inside', fun
         'table_number' => 1,
     ]);
 
-    $availableTable = ReservationHelper::checkAvailability($from, $to);
+    $availableTable = ReservationHelper::checkAvailability($from, $to, 'fromDateTime');
     expect($availableTable)->toBe(2);
 });
 
@@ -116,7 +116,7 @@ it('throws error if table 1 and table two is occupied around the start', functio
         'table_number' => 2,
     ]);
 
-    expect(fn () => ReservationHelper::checkAvailability($from, $to))->toThrow(ValidationException::class);
+    expect(fn () => ReservationHelper::checkAvailability($from, $to, 'fromDateTime'))->toThrow(ValidationException::class);
 });
 
 it('throws error if table 1 and table two is occupied around the end', function () {
@@ -135,7 +135,7 @@ it('throws error if table 1 and table two is occupied around the end', function 
         'table_number' => 2,
     ]);
 
-    expect(fn () => ReservationHelper::checkAvailability($from, $to))->toThrow(ValidationException::class);
+    expect(fn () => ReservationHelper::checkAvailability($from, $to, 'fromDateTime'))->toThrow(ValidationException::class);
 });
 
 it('throws error if table 1 and table two is occupied inside', function () {
@@ -154,7 +154,7 @@ it('throws error if table 1 and table two is occupied inside', function () {
         'table_number' => 2,
     ]);
 
-    expect(fn () => ReservationHelper::checkAvailability($from, $to))->toThrow(ValidationException::class);
+    expect(fn () => ReservationHelper::checkAvailability($from, $to, 'fromDateTime'))->toThrow(ValidationException::class);
 });
 
 it('throws error if table 1 and table two is occupied outside', function () {
@@ -173,7 +173,7 @@ it('throws error if table 1 and table two is occupied outside', function () {
         'table_number' => 2,
     ]);
 
-    expect(fn () => ReservationHelper::checkAvailability($from, $to))->toThrow(ValidationException::class);
+    expect(fn () => ReservationHelper::checkAvailability($from, $to, 'fromDateTime'))->toThrow(ValidationException::class);
 });
 
 it('throws error if table 1 and table 2 is occupied around and inside', function () {
@@ -188,7 +188,7 @@ it('throws error if table 1 and table 2 is occupied around and inside', function
     // Reservate table 2
     reservateTable($from, $to, 2);
 
-    expect(fn () => ReservationHelper::checkAvailability($from, $to))->toThrow(ValidationException::class);
+    expect(fn () => ReservationHelper::checkAvailability($from, $to, 'fromDateTime'))->toThrow(ValidationException::class);
 });
 
 

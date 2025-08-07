@@ -13,9 +13,19 @@
             </header>
         </div>
         <main class="-mt-32">
-            <div class="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-5xl px-4 pb-12 sm:px-6 lg:px-8">
                 <div class="rounded-lg bg-white px-5 shadow-sm sm:px-6">
                     <ul role="list" class="divide-y divide-gray-100">
+                        @empty($reservations->toArray())
+                            <li class="py-10">
+                                <p class="text-center text-sm text-gray-500">
+                                    You have no reservations yet.
+                                    <a href="{{ route('reservate') }}" class="font-semibold text-primary-600 hover:text-primary-500">
+                                        Create a new reservation!
+                                    </a>
+                                </p>
+                            </li>
+                        @endempty
                         @foreach($reservations as $reservation)
                             <li class="flex justify-between gap-x-6 py-5">
                                 <div class="flex min-w-0 gap-x-4">
