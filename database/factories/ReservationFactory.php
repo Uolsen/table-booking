@@ -21,6 +21,7 @@ class ReservationFactory extends Factory
     {
         return [
             'user_id' => User::factory(),
+            'table_number' => $this->faker->numberBetween(1, 1),
             'people_count' => $this->faker->numberBetween(1, 10),
             'start_time' => $this->faker->dateTimeBetween('now', '+1 week'),
             'end_time' => function (array $attributes) {

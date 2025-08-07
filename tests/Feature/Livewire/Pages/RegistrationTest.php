@@ -35,7 +35,7 @@ it('registers a new user with valid inputs', function () {
         ->set('password', $userData['password'])
         ->set('password_confirmation', $userData['password_confirmation'])
         ->call('submit')
-        ->assertRedirect(route('homepage'));
+        ->assertRedirect(route('dashboard'));
 
     $this->assertDatabaseHas('users', [
         'email' => $userData['email'],

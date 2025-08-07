@@ -48,7 +48,7 @@ class Registration extends Component
 
         Auth::login($user);
 
-        return redirect()->route('homepage');
+        return redirect()->route('dashboard');
     }
 
     public function render()

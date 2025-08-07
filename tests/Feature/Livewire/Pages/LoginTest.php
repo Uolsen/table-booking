@@ -32,7 +32,7 @@ it('logs in the user with correct credentials', function () {
         ->set('email', 'test@example.com')
         ->set('password', 'password')
         ->call('submit')
-        ->assertRedirect(route('homepage'));
+        ->assertRedirect(route('dashboard'));
 
     // Assert: The user should be authenticated.
     $this->assertAuthenticatedAs($user);

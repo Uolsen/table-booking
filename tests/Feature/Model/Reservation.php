@@ -19,10 +19,15 @@ it('casts people_count, start_time and end_time correctly', function () {
     $end = $start->copy()->addHours(2);
 
     $reservation = Reservation::factory()->create([
+        'table_number' => 1,
         'people_count' => 5,
         'start_time'   => $start,
         'end_time'     => $end,
     ]);
+
+    expect($reservation->table_number)
+        ->toBeInt()
+        ->toBe(1);
 
     expect($reservation->people_count)
         ->toBeInt()
