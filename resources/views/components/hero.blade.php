@@ -12,10 +12,13 @@
                         <div class="hidden sm:mb-10 sm:flex">
                             <div
                                 class="relative rounded-full px-3 py-1 text-sm/6 text-gray-500 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-                                Welcome to freshly opened Restaurant Experiment <a href="#"
-                                                                                   class="font-semibold whitespace-nowrap text-primary-600"><span
-                                        aria-hidden="true" class="absolute inset-0"></span>Reserve your seat <span
-                                        aria-hidden="true">&rarr;</span></a>
+                                Welcome to freshly opened Restaurant Experiment
+                                @if(!auth()->check())
+                                    <a href="#" class="font-semibold whitespace-nowrap text-primary-600">
+                                        <span aria-hidden="true" class="absolute inset-0"></span>Reserve your seat <span
+                                            aria-hidden="true">&rarr;</span>
+                                    </a>
+                                @endif
                             </div>
                         </div>
                         <h1 class="text-5xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-7xl">
@@ -26,7 +29,7 @@
                             @if(auth()->check())
                                 <x-button href="{{ route('reservate') }}"> Reservate</x-button>
                             @else
-                                <x-button href="{{ route('login') }}"> Reservate </x-button>
+                                <x-button href="{{ route('login') }}"> Reservate</x-button>
                                 <a href="#" class="text-sm/6 font-semibold text-gray-900">Create an account <span
                                         aria-hidden="true">→</span></a>
                             @endif

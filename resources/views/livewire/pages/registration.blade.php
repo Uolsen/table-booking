@@ -76,7 +76,7 @@
 
         <p class="mt-10 text-center text-sm text-gray-500">
             Already have an account?
-            <a href="#" class="font-semibold text-primary-600 hover:text-primary-500">
+            <a href="{{ route('login') }}" class="font-semibold text-primary-600 hover:text-primary-500">
                 Sign in
             </a>
         </p>

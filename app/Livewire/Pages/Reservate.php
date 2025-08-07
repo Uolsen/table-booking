@@ -4,6 +4,7 @@ namespace App\Livewire\Pages;
 
 use App\Helpers\ReservationHelper;
 use App\Models\Reservation;
+use App\Notifications\TableReservated;
 use Carbon\Carbon;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\ValidationException;
@@ -51,6 +52,8 @@ class Reservate extends Component
 
         $reservation->user()->associate(auth()->user());
         $reservation->save();
+
+        \Notification::send(auth()->user(), new TableReservated($reservation));
 
         return redirect()->route('dashboard');
     }
