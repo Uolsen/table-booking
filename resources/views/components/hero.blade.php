@@ -27,9 +27,9 @@
                                 <x-button href="{{ route('reservate') }}"> Reservate</x-button>
                             @else
                                 <x-button href="{{ route('login') }}"> Reservate </x-button>
+                                <a href="#" class="text-sm/6 font-semibold text-gray-900">Create an account <span
+                                        aria-hidden="true">→</span></a>
                             @endif
-                            <a href="#" class="text-sm/6 font-semibold text-gray-900">Create an account <span
-                                    aria-hidden="true">→</span></a>
                         </div>
                     </div>
                 </div>

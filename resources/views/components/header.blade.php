@@ -5,7 +5,7 @@
     <div class="mx-auto max-w-7xl">
         <div class="px-6 py-6 lg:max-w-2xl lg:pr-0 lg:pl-8">
             <nav aria-label="Global" class="flex items-center justify-between lg:justify-start">
-                <a href="#" class="-m-1.5 p-1.5">
+                <a href="{{ route('homepage') }}" class="-m-1.5 p-1.5">
                     <span class="sr-only">Your Company</span>
                     <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=amber&shade=600" alt="Your Company" class="h-8 w-auto" />
                 </a>
@@ -16,9 +16,7 @@
                     </svg>
                 </button>
                 <div class="hidden lg:ml-12 lg:flex lg:gap-x-14">
-                    <a href="#" class="text-sm/6 font-semibold text-gray-900">Product</a>
-                    <a href="#" class="text-sm/6 font-semibold text-gray-900">Features</a>
-                    <a href="#" class="text-sm/6 font-semibold text-gray-900">Marketplace</a>
+                    <a href="{{ route('homepage') }}" class="text-sm/6 font-semibold text-gray-900">Homepage</a>
                     @if(auth()->check())
                         <a href="{{ route('dashboard') }}" class="text-sm/6 font-semibold text-gray-900">Dashboard</a>
                         <a href="{{ route('logout') }}" class="text-sm/6 font-semibold text-gray-900">Log Out</a>
@@ -48,9 +46,7 @@
                     <div class="mt-6 flow-root">
                         <div class="-my-6 divide-y divide-gray-500/10">
                             <div class="space-y-2 py-6">
-                                <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Product</a>
-                                <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Features</a>
-                                <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Marketplace</a>
+                                <a href="{{ route('homepage') }}" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Homepage</a>
                                 @if(auth()->check())
                                     <a href="{{ route('dashboard') }}" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Dashboard</a>
                                     <a href="{{ route('logout') }}" class="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50">Log out</a>
